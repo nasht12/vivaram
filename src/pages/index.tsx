@@ -5,6 +5,9 @@ import { api } from "~/utils/api";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const {data} = api.posts.getAll.useQuery()
+
+  console.log('hello', data)
 
   return (
     <>
@@ -14,14 +17,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col p-8 justify-start items-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-  <div className="flex justify-end">
+    <div className="flex justify-end">
     <UserButton afterSignOutUrl="/" />
   </div>
   <div className="txt-lg text-white">
     Vivaram
   </div>
+  <div>
+   {data?.map((post) => (
+    <div key={post.id}>
+      {post.title}
+      </div>
+   ))}
+  </div>
 </main>
-
     </>
   );
 }
