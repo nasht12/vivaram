@@ -23,4 +23,15 @@ export const postsRouter = createTRPCRouter({
         )}
     ));
   }),
+
+  get: publicProcedure.input(z.object({id: z.string()}))
+  .query(async ({ ctx, input })=> {
+    const post = await ctx.prisma.post.findFirst({
+      where: {
+        id: input.id
+      }
+    })
+    return post;
+  }),
+  
 });

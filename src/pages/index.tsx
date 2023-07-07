@@ -10,9 +10,9 @@ export default function Home() {
 
   const { user } = useUser();
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  const { data, isLoading } = api.posts.getAll.useQuery();
+  // const { data, isLoading } = api.posts.getAll.useQuery();
 
-  if(!data || isLoading) return <LoadingPage />
+  // if(!data || isLoading) return <LoadingPage />
 
 
   return (
@@ -24,9 +24,9 @@ export default function Home() {
       </Head>
       <PostLayout>
         <div>
-  <Feed />
-  </div>
-</PostLayout>
+        <Feed />
+      </div>
+    </PostLayout>
     </>
   );
 }

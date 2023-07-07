@@ -12,9 +12,6 @@ export default function Feed() {
 
   if(!data || isLoading) return <LoadingPage />
 
-  console.log('data', data)
-  console.log('user', user)
-
   return (
     <>
       <Head>
@@ -27,10 +24,12 @@ export default function Feed() {
   </div>
   <div>
    {[...data]?.map(({post, author}) => (
+    <Link href={`/post/${post.id}`} key={post.id}>
     <div key={post.id} className="text-white txt-lg">
       {post.title}
       {post.authorId}
       </div>
+      </Link>
    ))}
   </div>
     </>

@@ -9,15 +9,14 @@ export const PostLayout = (props: PropsWithChildren) => {
     <div className="flex justify-end">
     <UserButton afterSignOutUrl="/" />
   </div>
-  
-  <div className="txt-lg text-white">
+  <div className="txt-lg text-white items-cente flex-colr">
   <Link href="/">
     Vivaram
     </Link>
-    <div>
+  </div>
+  <div>
         {props.children}
     </div>
-  </div>
 </main>
 );
 }
