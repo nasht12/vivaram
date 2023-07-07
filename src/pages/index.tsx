@@ -1,19 +1,8 @@
-import { UserButton, useUser } from "@clerk/nextjs";
 import Head from "next/head";
-import Link from "next/link";
 import Feed from "~/components/feed";
 import { PostLayout } from "~/components/layout";
-import { LoadingPage } from "~/components/loading";
-import { api } from "~/utils/api";
 
 export default function Home() {
-
-  const { user } = useUser();
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  // const { data, isLoading } = api.posts.getAll.useQuery();
-
-  // if(!data || isLoading) return <LoadingPage />
-
 
   return (
     <>
@@ -23,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostLayout>
-        <div>
+        <div className="mt-8">
         <Feed />
       </div>
     </PostLayout>

@@ -25,15 +25,15 @@ export default function PostPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostLayout>
-        <div>
-        <div className="hero min-h-screen bg-base-200">
-          <div className="flex p-10 top-20">
-        <h1 className="text-4xl font-bold mt-60">{data.title}</h1>
-        <Image src="https://cdn.discordapp.com/attachments/416094051339862016/1100205298226053230/DSCF8881.JPG" alt="pic" width="800" height="600" />
+        <div className = "flex justify-center items-center h-screen">
+        <div className="w-1/2 h-full flex items-center justify-center bg-white-200">
+        <h1 className="text-4xl font-bold flex items-start">{data.title}</h1>
         </div>
-      <p className="py-6">{data.content}</p>
+        <div className="w-1/2 h-full w-full flex items-center justify-center">
+        <Image src="https://cdn.discordapp.com/attachments/416094051339862016/1100205298226053230/DSCF8881.JPG" className="max-w-full h-auto" alt="pic" width="800" height="600" />
+        </div>
     </div>
-  </div>
+    <p className="py-6">{data.content}</p>
     </PostLayout>
     </>
   );
