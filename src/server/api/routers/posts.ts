@@ -7,6 +7,7 @@ const filterAuthorClient = (user: User) => {
     return { id: user.id, username: user.username, profilePicture: user.profileImageUrl }
 }
 
+
 export const postsRouter = createTRPCRouter({
 
   getAll: publicProcedure.query(async ({ ctx }) => {
@@ -30,8 +31,12 @@ export const postsRouter = createTRPCRouter({
       where: {
         id: input.id
       }
-    })
-    return post;
+    });
+    const users = (await clerkClient.users.getUserList())
+      // .map(filterAuthorClient);
+      .filter(user => user.id === post?.authorId).map(filterAuthorClient);
+    
+    return {...post, users};
   }),
   
 });
