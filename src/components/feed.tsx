@@ -26,7 +26,6 @@ export default function Feed() {
     <div key={post.id} className = "w-80">
       <Link  href={{
     pathname: `/post/${post.id}`,
-    query: { id: `${post.id}` },
   }} key={post.id} >
     <div>
     <Image src={post.imageUrl}

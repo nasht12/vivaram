@@ -6,17 +6,26 @@ import { useRouter } from 'next/router'
 import Image from "next/image";
 import dayjs from 'dayjs'
 
-
-export default function PostPage(props: any) {
+export default function PostPage() {
 
   const router = useRouter();
-  const postId = router.query.id;
-  console.log('router', router);
-  console.log('props', props);
 
-  const refPostId = Array.isArray(postId) ? postId[0] : postId;
+  // const queryKey = 'id';
+  // const queryValue = router.query[queryKey] || router.asPath.match(new RegExp(`[&?]${queryKey}=(.*)(&|$)`))
+  let postId = router.query["id"];
 
-  const { data, isLoading } = api.posts.get.useQuery({ id: 'cljt1z2ay0001cc30lgy2dvjl' })
+  if(!postId) return
+  if (Array.isArray(postId)) {
+    postId = postId[0];
+  }
+  if (typeof postId !== 'string') {
+        // Here you can decide what to do when `id` is not a string.
+        // You might want to throw an error, return, set a default value, etc.
+        throw new Error("ID must be a string");
+      }
+ 
+  const { data, isLoading } = api.posts.get.useQuery({ id: postId})
+
 
   if(!data || isLoading) return <LoadingPage />
 
