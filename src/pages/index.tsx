@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostLayout>
-        <div className="mt-8">
+        <div >
         <Feed />
       </div>
     </PostLayout>

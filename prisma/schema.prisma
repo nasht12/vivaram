@@ -23,6 +23,8 @@ model Post {
     title String @db.VarChar(255)
     content String @db.Text
     authorId String
+    label String @db.VarChar(255)
+    imageUrl String
 
     @@index([authorId])
 }

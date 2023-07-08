@@ -4,14 +4,19 @@ import { LoadingPage } from "~/components/loading";
 import { api } from "~/utils/api";
 import { useRouter } from 'next/router'
 import Image from "next/image";
+import dayjs from 'dayjs'
 
 
-export default function PostPage() {
+export default function PostPage(props: any) {
 
   const router = useRouter();
   const postId = router.query.id;
+  console.log('router', router);
+  console.log('props', props);
 
-  const { data, isLoading } = api.posts.get.useQuery({ id: postId }, { enabled: !!postId })
+  const refPostId = Array.isArray(postId) ? postId[0] : postId;
+
+  const { data, isLoading } = api.posts.get.useQuery({ id: 'cljt1z2ay0001cc30lgy2dvjl' })
 
   if(!data || isLoading) return <LoadingPage />
 
@@ -25,15 +30,19 @@ export default function PostPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostLayout>
-        <div className = "flex justify-center items-center h-screen">
-        <div className="w-1/2 h-full flex items-center justify-center bg-white-200">
-        <h1 className="text-4xl font-bold flex items-start">{data.title}</h1>
+        <div className = "flex justify-center items-center h-screen border-t-2 border-black p-4">
+          <div className="w-1/2 h-full flex flex-col items-center justify-center bg-white-200 pl-16">
+            <h1 className="text-4xl font-bold flex items-start">{data.title}</h1>
+          </div>
+          <div className="w-1/2 h-full w-full flex items-center justify-center">
+            <Image src={data.imageUrl || "alt"} className="max-w-full h-auto" alt="pic" width="800" height="600" />
+          </div>
         </div>
-        <div className="w-1/2 h-full w-full flex items-center justify-center">
-        <Image src="https://cdn.discordapp.com/attachments/416094051339862016/1100205298226053230/DSCF8881.JPG" className="max-w-full h-auto" alt="pic" width="800" height="600" />
+        <div className="border-t-2 border-black p-4">
+          <h1 className="text-xs">{`${dayjs(data.createdAt).format('MMMM D, YYYY')}`}</h1>
+          <h1 className="text-xl bg-black text-white p-2 leading-none align-middle">Abhinash Tummala</h1>
         </div>
-    </div>
-    <p className="py-6">{data.content}</p>
+        <p className="py-6">{data.content}</p>
     </PostLayout>
     </>
   );

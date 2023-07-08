@@ -19,7 +19,7 @@ export const PostLayout = (props: PropsWithChildren) => {
     </div>
   </div>
   <div className="navbar-center">
-    <Link className="btn btn-ghost normal-case text-2xl font-serif" href="/">Vivaram</Link>
+    <Link className="btn btn-ghost normal-case text-2xl font-serif  hover:bg-black hover:text-white" href="/">Vivaram</Link>
   </div>
   <div className="navbar-end">
     <button className="btn btn-ghost btn-circle">
