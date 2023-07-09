@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Feed from "~/components/feed";
 import { PostLayout } from "~/components/layout";
+import TopFeed from "~/components/topfeed";
 
 export default function Home() {
 
@@ -13,7 +14,8 @@ export default function Home() {
       </Head>
       <PostLayout>
         <div >
-        <Feed />
+          <TopFeed />
+          <Feed />
       </div>
     </PostLayout>
     </>

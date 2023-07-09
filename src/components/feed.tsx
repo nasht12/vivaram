@@ -22,23 +22,23 @@ export default function Feed() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
   <div className="flex p-4 pl-16 gap-10 border-t-2 border-black">
-   {[...data]?.map(({post, author}) => (
-    <div key={post.id} className = "w-80">
-      <Link  href={{
-    pathname: `/post/${post.id}`,
-  }} key={post.id} >
-    <div>
-    <Image src={post.imageUrl}
-     alt="car!" width="480" height ="320" 
-     quality={75}
-     priority={true}/>
-     </div>
-  <div className="card-body p-5 overflow-hidden ">
-    <h2 className="card-title">{post.title}</h2>
-  </div>
-      </Link>
+    {[...data]?.map(({post, author}) => (
+      <div key={post.id} className = "w-80">
+        <Link  href={{
+      pathname: `/post/${post.id}`,
+    }} key={post.id} >
+      <div>
+      <Image src={post.imageUrl}
+      alt="car!" width="480" height ="320" 
+      quality={75}
+      priority={true}/>
+      </div>
+    <div className="pt-2 overflow-hidden ">
+      <h2 className="card-title">{post.title}</h2>
     </div>
-   ))}
+        </Link>
+      </div>
+    ))}
   </div>
     </>
   );
