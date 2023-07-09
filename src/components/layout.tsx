@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import { UserButton, useUser } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export const PostLayout = (props: PropsWithChildren) => {

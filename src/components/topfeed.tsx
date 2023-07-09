@@ -1,4 +1,3 @@
-import { UserButton, useUser } from "@clerk/nextjs";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +6,6 @@ import { api } from "~/utils/api";
 
 export default function TopFeed() {
 
-  const { user } = useUser();
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  console.log('hello', hello.data);
   const { data, isLoading } = api.posts.getAll.useQuery();
   const recentData = data?.slice(0,3);
 
@@ -26,7 +22,7 @@ export default function TopFeed() {
       </Head>
   <div className="flex p-4 pl-16 gap-10 border-t-2 border-black mb-6">
     <div className = "w-1/2">
-            <Link href={`/post/${data[0]?.post.id}`}>
+    {data[0]?.post.id && <Link href={`/post/${data[0]?.post.id}`}>
                 <div>
                     <Image src={data[0]?.post.imageUrl ?? ''}
                     alt="car!" width="720" height ="320" 
@@ -36,11 +32,11 @@ export default function TopFeed() {
                 <div className="pt-2">
                     <h2 className="font-medium">{data[0]?.post.title}</h2>
                 </div>
-            </Link>
+    </Link>}
         </div>
     <div className="flex flex-col items-start space-y-52">
         <div className= "w-100 h-32">
-            <Link href={`/post/${data[1]?.post.id}`}>
+        {data[1]?.post.id && <Link href={`/post/${data[1]?.post.id}`}>
                 <div>
                     <Image src={data[1]?.post.imageUrl ?? ''}
                     alt="car!" width="400" height ="128" 
@@ -50,11 +46,11 @@ export default function TopFeed() {
                 <div className="w-80 overflow-auto pt-2">
                     <h2 className="font-medium">{data[1]?.post.title}</h2>
                 </div>
-            </Link>
+        </Link>}
         </div>
         <div className="flex space-x-4">
             <div className="w-48 h-16">
-                <Link href={`/post/${data[2]?.post.id}`}>
+            {data[2]?.post.id && <Link href={`/post/${data[2]?.post.id}`}>
                     <div>
                         <Image src={data[2]?.post.imageUrl ?? ''}
                         alt="car!" width="192" height ="64" 
@@ -64,10 +60,10 @@ export default function TopFeed() {
                     <div className="pt-2">
                         <h2 className="font-medium ">{data[2]?.post.title}</h2>
                     </div>
-                </Link>
+                </Link>}
             </div>
             <div className="w-48 h-16">
-                <Link href={`/post/${data[2]?.post.id}`}>
+            {data[2]?.post.id &&<Link href={`/post/${data[2]?.post.id}`}>
                     <div>
                         <Image src={data[2]?.post.imageUrl ?? ''}
                         alt="car!" width="192" height ="64" 
@@ -77,7 +73,7 @@ export default function TopFeed() {
                     <div className="pt-2">
                         <h2 className="font-medium">{data[2]?.post.title}</h2>
                     </div>
-                </Link>
+                </Link>}
             </div>
         </div>
     </div>

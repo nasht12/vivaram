@@ -6,7 +6,6 @@ import { api } from "~/utils/api";
 export default function ProfilePage() {
 
   const { user } = useUser();
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const { data, isLoading } = api.posts.getAll.useQuery();
 
   if(!data || isLoading) return <LoadingPage />

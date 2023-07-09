@@ -1,4 +1,3 @@
-import { UserButton, useUser } from "@clerk/nextjs";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +6,6 @@ import { api } from "~/utils/api";
 
 export default function Feed() {
 
-  const { user } = useUser();
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  console.log('hello', hello.data);
   const { data, isLoading } = api.posts.getAll.useQuery();
 
   if(!data || isLoading) return <LoadingPage />
@@ -22,7 +18,7 @@ export default function Feed() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
   <div className="flex p-4 pl-16 gap-10 border-t-2 border-black">
-    {[...data]?.map(({post, author}) => (
+    {[...data]?.map(({post}) => (
       <div key={post.id} className = "w-80">
         <Link  href={{
       pathname: `/post/${post.id}`,
