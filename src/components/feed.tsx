@@ -19,20 +19,18 @@ export default function Feed() {
       </Head>
   <div className="flex p-4 m-4 gap-10 border-t border-black">
     {[...data]?.map(({post}) => (
-      <div key={post.id} className = "w-80">
-        <Link  href={{
-      pathname: `/post/${post.id}`,
-    }} key={post.id} >
-      <div>
-      <Image src={post.imageUrl}
-      alt="car!" width="480" height ="320" 
-      quality={75}
-      priority={true}/>
+      <div key={post.id} className = "w-48 h-16">
+          <Link  href={{pathname: `/post/${post.id}`}} key={post.id} >
+        <div>
+        <Image src={post.imageUrl}
+        alt="car!" width="196" height ="64" 
+        quality={75}
+        priority={true}/>
+        </div>
+      <div className="pt-2 overflow-hidden ">
+        <h2 className="text-sm font-medium">{post.title}</h2>
       </div>
-    <div className="pt-2 overflow-hidden ">
-      <h2 className="card-title">{post.title}</h2>
-    </div>
-        </Link>
+          </Link>
       </div>
     ))}
   </div>
