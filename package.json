@@ -18,14 +18,17 @@
     "@trpc/next": "^10.26.0",
     "@trpc/react-query": "^10.26.0",
     "@trpc/server": "^10.26.0",
+    "cors": "^2.8.5",
     "dayjs": "^1.11.9",
     "next": "^13.4.2",
+    "openai": "^3.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "superjson": "1.12.2",
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/eslint": "^8.37.0",
     "@types/node": "^18.16.0",
     "@types/prettier": "^2.7.2",

@@ -33,7 +33,7 @@ export default function TopFeed() {
         </Link>}
     </div>
     <div className="flex flex-col items-start space-y-52">
-        <div className= "w-100 h-32">
+        <div className= " w-100 h-32">
             {data[1]?.post.id && <Link href={`/post/${data[1]?.post.id}`}>
                     <div>
                         <Image src={data[1]?.post.imageUrl ?? ''}
@@ -54,7 +54,7 @@ export default function TopFeed() {
                             alt="car!" width="192" height ="64" 
                             quality={75}
                             priority={true}/>
-                        </div>
+                        </div> 
                         <div className="pt-2">
                             <h2 className="font-medium ">{data[2]?.post.title}</h2>
                         </div>

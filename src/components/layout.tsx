@@ -13,6 +13,7 @@ export const PostLayout = (props: PropsWithChildren) => {
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li><Link href="/">Homepage</Link></li>
+        <li><Link href="/create">Create</Link></li>
         <li><Link href="/posts">Profile</Link></li>
         <li><Link href="/">About</Link></li>
       </ul>
