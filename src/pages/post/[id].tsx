@@ -59,7 +59,7 @@ export default function PostPage() {
         </div>
         <p className="py-6">{data.content}</p>
       </PostLayout>
-      <ArticleCard {...art1}/>
+      {/* <ArticleCard {...art1}/> */}
     </>
   );
 }

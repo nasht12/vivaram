@@ -9,8 +9,8 @@ export default function TopFeed() {
   if (!data || isLoading) return <LoadingPage />;
 
   return (
-    <div className="m-4 gap-10 border-t border-black p-4 flex flex-col md:flex-row">
-      <div className="flex-auto m-2">
+    <div className="m-4 flex flex-col gap-10 border-t border-black p-4 md:flex-row">
+      <div className="m-2 flex-auto">
         {data[0]?.post.id && (
           <Link href={`/post/${data[0]?.post.id}`}>
             <div className="relative">
@@ -20,49 +20,55 @@ export default function TopFeed() {
                 width="720"
                 height="320"
                 priority={true}
+                layout="responsive"
                 className="h-auto max-w-full items-center justify-center"
               />
             </div>
             <div className="pt-2">
-              <h2 className="font-medium text-xs sm:text-sm md:text-md lg:text-md">{data[0]?.post.title}</h2>
+              <h2 className="line-clamp-2 text-xs font-medium sm:text-sm md:text-base">
+                {data[0]?.post.title}
+              </h2>
             </div>
           </Link>
         )}
       </div>
       <div className="flex flex-col">
-      <div className="flex m-2 ">
-          <div className="flex items-center justify-center overflow-auto pt-2 relative">
-            <h2 className="font-medium text-xs sm:text-sm md:text-md lg:text-md">{data[1]?.post.title}</h2>
-          </div>
-          {data[1]?.post.id && (
-            <Link href={`/post/${data[2]?.post.id}`}>
+        <Link href={`/post/${data[2]?.post.id}`}>
+          <div className="m-2 flex flex-row">
+            <h1 className="items-top line-clamp-2 flex text-xs font-medium sm:text-sm md:text-base">
+              {data[1]?.post.title}
+            </h1>
+            <div className="relative">
               <Image
                 src={data[2]?.post.imageUrl ?? ""}
                 alt="car!"
-                width="480"
-                height="160"
+                width="320"
+                height="140"
                 priority={true}
+                layout="responsive"
+                className="h-auto max-w-full items-center justify-center"
               />
-            </Link>
-          )}
-        </div>
-        <div className="flex m-2">
-          <div className="flex items-center justify-center overflow-auto pt-2">
-            <h2 className="font-medium text-xs sm:text-sm md:text-md lg:text-md">{data[1]?.post.title}</h2>
+            </div>
           </div>
-          {data[1]?.post.id && (
-            <Link href={`/post/${data[2]?.post.id}`}>
+        </Link>
+        <Link href={`/post/${data[2]?.post.id}`}>
+          <div className="m-2 flex flex-row">
+            <h1 className="items-top line-clamp-2 flex justify-center text-xs font-medium sm:text-sm md:text-base">
+              {data[1]?.post.title}
+            </h1>
+            <div className="relative">
               <Image
                 src={data[2]?.post.imageUrl ?? ""}
                 alt="car!"
-                width="480"
-                height="160"
+                width="320"
+                height="140"
+                layout="responsive"
                 priority={true}
               />
-            </Link>
-          )}
-        </div>
-        </div>
+            </div>
+          </div>
+        </Link>
       </div>
+    </div>
   );
 }
