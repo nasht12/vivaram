@@ -1,10 +1,13 @@
 import Head from "next/head";
+import { Article } from "types";
+import ArticleCard from "~/components/articlecard";
 import Feed from "~/components/feed";
 import { PostLayout } from "~/components/layout";
 import TopFeed from "~/components/topfeed";
 
 export default function Home() {
 
+  const art1: Article = {id: 'cljt1c1tl0000cc30x25ubq3k', title: "Don't Join Threads - Make Threads Join You", imageUrl: "https://res.cloudinary.com/dqrh2zt1f/image/upload/v1688762547/cld-sample-2.jpg" }
   return (
     <>
       <Head>
@@ -13,11 +16,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostLayout>
-        <div >
-          <TopFeed />
-          <Feed />
-      </div>
-    </PostLayout>
+            <TopFeed />     
+            <Feed />
+            {/* <div className="margin-y-10">
+            <ArticleCard {...art1}/>
+            </div> */}
+      </PostLayout>
     </>
   );
 }
