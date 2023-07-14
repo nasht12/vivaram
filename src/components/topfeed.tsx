@@ -9,7 +9,7 @@ export default function TopFeed() {
   if (!data || isLoading) return <LoadingPage />;
 
   return (
-    <div className="m-4 gap-10 border-t border-black p-4 flex">
+    <div className="m-4 gap-10 border-t border-black p-4 flex flex-col md:flex-row">
       <div className="flex-auto m-2">
         {data[0]?.post.id && (
           <Link href={`/post/${data[0]?.post.id}`}>
@@ -24,7 +24,7 @@ export default function TopFeed() {
               />
             </div>
             <div className="pt-2">
-              <h2 className="font-medium">{data[0]?.post.title}</h2>
+              <h2 className="font-medium text-xs sm:text-sm md:text-md lg:text-md">{data[0]?.post.title}</h2>
             </div>
           </Link>
         )}
@@ -32,7 +32,7 @@ export default function TopFeed() {
       <div className="flex flex-col">
       <div className="flex m-2 ">
           <div className="flex items-center justify-center overflow-auto pt-2 relative">
-            <h2 className="font-medium text-sm md: text-md lg: text-md">{data[1]?.post.title}</h2>
+            <h2 className="font-medium text-xs sm:text-sm md:text-md lg:text-md">{data[1]?.post.title}</h2>
           </div>
           {data[1]?.post.id && (
             <Link href={`/post/${data[2]?.post.id}`}>
@@ -48,7 +48,7 @@ export default function TopFeed() {
         </div>
         <div className="flex m-2">
           <div className="flex items-center justify-center overflow-auto pt-2">
-            <h2 className="font-medium text-sm md: text-md lg: text-md">{data[1]?.post.title}</h2>
+            <h2 className="font-medium text-xs sm:text-sm md:text-md lg:text-md">{data[1]?.post.title}</h2>
           </div>
           {data[1]?.post.id && (
             <Link href={`/post/${data[2]?.post.id}`}>
