@@ -9,8 +9,8 @@ export default function TopFeed() {
   if (!data || isLoading) return <LoadingPage />;
 
   return (
-    <div className="m-4 flex flex-col gap-10 border-t border-black p-4 md:flex-row">
-      <div className="m-2 flex-auto">
+    <div className="flex flex-col border-t border-black md:flex-row m-4 p-4 gap-4">
+      <div className="flex-auto">
         {data[0]?.post.id && (
           <Link href={`/post/${data[0]?.post.id}`}>
             <div className="relative">
@@ -32,10 +32,11 @@ export default function TopFeed() {
           </Link>
         )}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-4">
+      {data[2]?.post.id && (
         <Link href={`/post/${data[2]?.post.id}`}>
-          <div className="m-2 flex flex-row">
-            <h1 className="items-top line-clamp-2 flex text-xs font-medium sm:text-sm md:text-base">
+          <div className="flex flex-row">
+            <h1 className="items-top line-clamp-2 flex text-xs font-medium sm:text-sm md:text-base px-2">
               {data[1]?.post.title}
             </h1>
             <div className="relative">
@@ -51,9 +52,11 @@ export default function TopFeed() {
             </div>
           </div>
         </Link>
+         )}
+         {data[2]?.post.id && (
         <Link href={`/post/${data[2]?.post.id}`}>
-          <div className="m-2 flex flex-row">
-            <h1 className="items-top line-clamp-2 flex justify-center text-xs font-medium sm:text-sm md:text-base">
+          <div className="flex flex-row">
+            <h1 className="items-top line-clamp-2 flex text-xs font-medium sm:text-sm md:text-base px-2">
               {data[1]?.post.title}
             </h1>
             <div className="relative">
@@ -68,6 +71,7 @@ export default function TopFeed() {
             </div>
           </div>
         </Link>
+         )}
       </div>
     </div>
   );
