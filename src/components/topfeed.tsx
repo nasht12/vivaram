@@ -33,6 +33,7 @@ export default function TopFeed() {
         )}
       </div>
       <div className="flex flex-col gap-4">
+      {data[2]?.post.id && (
         <Link href={`/post/${data[2]?.post.id}`}>
           <div className="flex flex-row">
             <h1 className="items-top line-clamp-2 flex text-xs font-medium sm:text-sm md:text-base px-2">
@@ -51,6 +52,8 @@ export default function TopFeed() {
             </div>
           </div>
         </Link>
+         )}
+         {data[2]?.post.id && (
         <Link href={`/post/${data[2]?.post.id}`}>
           <div className="flex flex-row">
             <h1 className="items-top line-clamp-2 flex text-xs font-medium sm:text-sm md:text-base px-2">
@@ -68,6 +71,7 @@ export default function TopFeed() {
             </div>
           </div>
         </Link>
+         )}
       </div>
     </div>
   );
