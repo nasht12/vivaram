@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { LoadingPage } from "~/components/loading";
@@ -10,7 +9,7 @@ export default function Feed() {
   if (!data || isLoading) return <LoadingPage />;
 
   return (
-      <div className="m-4 flex flex-wrap gap-10 border-t border-black p-4">
+      <div className="flex flex-wrap gap-10 border-t border-black m-4 p-4">
         {[...data]?.map(({ post }) => (
           <div
             key={post.id}
